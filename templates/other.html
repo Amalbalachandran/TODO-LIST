@@ -1,0 +1,256 @@
+<div class="card-footer">
+    <a class="btn btn-warning mr" href="{% url 'fapp:update' i.id %}">UPDATE</a>
+    <a class="btn btn-danger" href="{% url 'fapp:delete' i.id %}">DELETE</a>
+</div>
+<div class="card-footer">
+    <a class="btn btn-warning mr" href="{% url 'fapp:update' i.id %}">UPDATE</a>
+</div>
+
+
+
+
+
+
+
+
+body{
+    background-color: #36454f;
+    }
+    /* h1{
+        color: #ff6347;
+    } */
+    h1 {
+        color: #DC143C; /* Deep Crimson color */
+        font-family: 'Roboto', sans-serif; /* Choose a suitable font-family */
+        font-weight: bold;
+        font-size: 2.5rem; /* Adjust size as needed */
+        text-align: center; /* Center align the text */
+        margin-top: 20px; /* Adjust spacing from the top */
+    }
+
+    .navbar {
+        background-color: #2f4f4f; /* Dark background */
+        nav-right: 0;
+    }
+
+    .navbar-brand {
+        color: #ffd700; /* White text */
+        font-weight: bold;
+        font-size: 1.5rem; /* Larger font size */
+    }
+
+    .navbar-brand:hover {
+        color: #c09ebf; /* Light grey text on hover */
+    }
+
+    .nav-link {
+        color: #ffffff; /* White text */
+        font-weight: 500; /* Medium font weight */
+        padding: 0.5rem 1rem; /* Padding for the links */
+    }
+
+    .nav-link:hover {
+        color: #d3d3d3; /* Light grey text on hover */
+    }
+
+    .navbar-toggler {
+        border: none; /* Remove border from the toggler button */
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        /* White lines for the toggler icon */
+    }
+
+
+
+
+    
+    .footer {
+        background-color: #2f4f4f;
+        color: #d3d3d3;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .footer a {
+        color: #ffffff;
+        margin: 0 10px;
+        font-size: 1.2rem;
+    }
+    .footer {
+        background-color: #2f4f4f;
+        color: #d3d3d3;
+        text-align: center;
+        padding: 10px 0;
+        padding-top: 10px;
+        /* position: fixed; */
+        left: 0%;
+        right: 0%;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer a:hover {
+        color: #e908c3;
+    }
+
+
+
+    # def delete(request,id):
+#     if request.method=='POST':
+#         todo = ToDo.objects.get(id=id)
+#         todo.delete()
+#         return redirect('fapp:home')
+#     return render (request,'delete.html')
+
+
+<a href="javascript:void(0);" onclick="confirmDelete(id);">
+    <svg  width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+      </svg>
+    done
+</a>  
+
+
+
+    <!-- <script>
+        function confirmDelete(id) {
+            if (confirm("Are you sure you want to delete this task?")) {
+                deleteTask(id);
+            }
+        }
+    
+        function deleteTask(id) {
+            fetch(`{% url 'fapp:delete' i.id %}`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('An error occurred while deleting the task.');
+                }
+            });
+        }
+    </script> -->
+
+
+    # def delete(request, id):
+#     if request.method == 'POST':
+#         todo = get_object_or_404(ToDo, id=id)
+#         todo.delete()
+#         if request.is_ajax():
+#             return JsonResponse({'success': True})
+#         return redirect('fapp:home')
+#     return JsonResponse({'success': False, 'error': 'Invalid request method'}, status=400)
+
+
+
+        <!-- <div class="card-footer">
+            <a class="btn btn-warning mr" href="{% url 'fapp:edit' i.id %}">UPDATE</a>
+        </div> -->
+
+            <!-- <div class="add">
+        <div class="d-flex justify-content-center my-4">
+        <a class="btn btn-success btn-lg" href="{% url 'fapp:insert' %}"> ADD TASK</a>
+        </div>
+    </div> -->
+
+
+
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #8de7ca;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #b9380e;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .col-md-3 {
+        margin: 10px;
+    }
+
+    .card {
+        width: 18rem;
+        border: 1px solid #659cd3;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(242, 6, 6, 0.996);
+    }
+
+    .list-group-item {
+        background-color: #ffffff;
+        border: none;
+        font-size: 14px;
+        color: #000000;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-top: 1px solid #ced4da;
+    }
+
+    a.edit, a.done {
+        text-decoration: none;
+        font-size: 14px;
+        color: #007bff;
+        display: flex;
+        align-items: center;
+    }
+
+    a.edit:hover, a.done:hover {
+        color: #0056b3;
+    }
+
+    a.edit svg, a.done svg {
+        margin-right: 5px;
+    }
+
+
+
+
+
+    <!-- a.edit:hover span, a.done:hover span {
+        visibility: hidden;
+        opacity: 1;
+    }
+
+    a.edit:hover, a.done:hover {
+        color: #0056b3;
+        transform: scale(1.2);
+    } -->
+
+
+
+
+    .footer {
+        background-color: #34495e; /* Set the background color of the footer */
+        color: #fff; /* Set the text color for footer elements */
+        padding: 10px 20px; /* Add some padding to the footer */
+        text-align: center; /* Center the content of the footer */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px 0;
+        padding-top: 10px;
+        width: 100%;
+    
+      }
